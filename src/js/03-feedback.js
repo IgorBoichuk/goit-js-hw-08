@@ -1,25 +1,16 @@
 const form = document.querySelector('.feedback-form');
 
-console.log(form);
 form.addEventListener('input', formlInputEmail);
-// form.message.addEventListener('input', formlInputMessage);
 form.addEventListener('submit', formSubmit);
 
 function formlInputEmail(event) {
-  const emailValue = event.target.value;
-  const messageValue = event.target.value;
+  const {
+    elements: { email, message },
+  } = event.currentTarget;
 
-  console.log(event.target.value);
-
-  // console.log('Пишу в масагу', messageValue);
-  // console.log('Пишу в мило', emailValue);
+  const inputData = `{${email.name}: ${email.value}, ${message.name}: ${message.value}}`;
+  localStorage.setItem('feedback-form-state', inputData);
 }
-
-// function formlInputMessage(event) {
-//   const messageValue = event.target.value;
-
-//   console.log('Пишу в масагу', messageValue);
-// }
 
 function formSubmit(event) {
   event.preventDefault();
