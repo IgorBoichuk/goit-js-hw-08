@@ -1,2 +1,0 @@
-const e=document.querySelector(".feedback-form");e.addEventListener("input",(function(e){const{elements:{email:t,message:a}}=e.currentTarget,n=`{${t.name}: ${t.value}, ${a.name}: ${a.value}}`;localStorage.setItem("feedback-form-state",n)})),e.addEventListener("submit",(function(e){e.preventDefault(),localStorage.removeItem("feedback-form-state"),e.currentTarget.reset(),console.log("removeItem")}));
-//# sourceMappingURL=03-feedback.c60eadcc.js.map
