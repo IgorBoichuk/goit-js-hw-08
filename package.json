@@ -15,7 +15,7 @@
   "author": "Ihor Boichuk <ihor.boichuk@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/IgorBoichuk/goit-js-hw-08/issues"
+    "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "dependencies": {
     "modern-normalize": "^1.1.0",
