@@ -16,7 +16,7 @@ const parsedSettings = JSON.parse(savedSettings);
 //  f20@online.ua
 // dobry den everybody
 
-for (item in parsedSettings) {
+for (let item in parsedSettings) {
   if (item) {
     // console.log(item);
     // console.log(parsedSettings[item]);
