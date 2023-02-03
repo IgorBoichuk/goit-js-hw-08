@@ -11,22 +11,24 @@ const inputData = {};
 
 const savedSettings = localStorage.getItem(KEY_STORAGE);
 const parsedSettings = JSON.parse(savedSettings);
-console.log(parsedSettings.email);
+// console.log(parsedSettings.email);
 
-// if (parsedSettings.email) {
-//   form.email.value = parsedSettings.email;
-// }
-// if (parsedSettings.message) {
-//   form.message.value = parsedSettings.message;
-// }
+//  f20@online.ua
+// dobry den everybody
+
+for (item in parsedSettings) {
+  if (item) {
+    // console.log(item);
+    // console.log(parsedSettings[item]);
+    // console.log(form[item].value);
+    form[item].value = parsedSettings[item];
+  }
+}
 
 function formDataInput(event) {
   inputData[event.target.name] = event.target.value;
   localStorage.setItem(KEY_STORAGE, JSON.stringify(inputData));
 }
-
-//  f20@online.ua
-// dobry den everybody
 
 function formSubmit(event) {
   event.preventDefault();
