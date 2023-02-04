@@ -35,5 +35,5 @@ function formSubmit(event) {
   localStorage.removeItem('feedback-form-state');
   event.currentTarget.reset();
 
-  // console.log('removeItem');
+  console.log('removeItem');
 }
