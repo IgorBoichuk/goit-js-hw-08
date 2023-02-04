@@ -1,38 +1,33 @@
-const { throttle } = require("lodash");
+const { throttle } = require('lodash');
 
-const form = document.querySelector(".feedback-form");
+const form = document.querySelector('.feedback-form');
 
-form.addEventListener("input", throttle(formDataInput, 500));
-form.addEventListener("submit", formSubmit);
+form.addEventListener('input', throttle(formDataInput, 500));
+form.addEventListener('submit', formSubmit);
 
-const KEY_STORAGE = "feedback-form-state";
+const KEY_STORAGE = 'feedback-form-state';
 
-const inputData = {};
-
-const savedSettings = localStorage.getItem(KEY_STORAGE);
-const parsedSettings = JSON.parse(savedSettings);
-// console.log(parsedSettings);
+const savedSettings = JSON.parse(localStorage.getItem(KEY_STORAGE)) || {};
 
 //  f20@online.ua
 // dobry den everybody
 
-for (let item in parsedSettings) {
-  if (item) {
-    // console.log(item);
-    // console.log(parsedSettings[item]);
-    // console.log(form[item].value);
-    form[item].value = parsedSettings[item];
-  }
-}
-
 function formDataInput(event) {
-  inputData[event.target.name] = event.target.value;
-  localStorage.setItem(KEY_STORAGE, JSON.stringify(inputData));
+  savedSettings[event.target.name] = event.target.value;
+  localStorage.setItem(KEY_STORAGE, JSON.stringify(savedSettings));
 }
 
 function formSubmit(event) {
-  console.log(localStorage.getItem(KEY_STORAGE));
   event.preventDefault();
-  localStorage.removeItem("feedback-form-state");
+
+  console.log(savedSettings);
+
+  localStorage.removeItem('feedback-form-state');
   event.currentTarget.reset();
 }
+
+function readyUserData() {
+  form.email.value = savedSettings.email || '';
+  form.message.value = savedSettings.message || '';
+}
+readyUserData();
