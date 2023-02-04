@@ -1,17 +1,17 @@
-const { throttle } = require('lodash');
+const { throttle } = require("lodash");
 
-const form = document.querySelector('.feedback-form');
+const form = document.querySelector(".feedback-form");
 
-form.addEventListener('input', throttle(formDataInput, 500));
-form.addEventListener('submit', formSubmit);
+form.addEventListener("input", throttle(formDataInput, 500));
+form.addEventListener("submit", formSubmit);
 
-const KEY_STORAGE = 'feedback-form-state';
+const KEY_STORAGE = "feedback-form-state";
 
 const inputData = {};
 
 const savedSettings = localStorage.getItem(KEY_STORAGE);
 const parsedSettings = JSON.parse(savedSettings);
-// console.log(parsedSettings.email);
+// console.log(parsedSettings);
 
 //  f20@online.ua
 // dobry den everybody
@@ -31,9 +31,8 @@ function formDataInput(event) {
 }
 
 function formSubmit(event) {
+  console.log(localStorage.getItem(KEY_STORAGE));
   event.preventDefault();
-  localStorage.removeItem('feedback-form-state');
+  localStorage.removeItem("feedback-form-state");
   event.currentTarget.reset();
-
-  console.log('removeItem');
 }
