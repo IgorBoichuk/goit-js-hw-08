@@ -6,7 +6,7 @@ form.addEventListener('input', throttle(formDataInput, 500));
 form.addEventListener('submit', formSubmit);
 
 const KEY_STORAGE = 'feedback-form-state';
-const savedSettings = JSON.parse(localStorage.getItem(KEY_STORAGE)) || {};
+let savedSettings = JSON.parse(localStorage.getItem(KEY_STORAGE)) || {};
 
 //  f20@online.ua
 // dobry den everybody
@@ -28,6 +28,7 @@ function formSubmit(event) {
 
   event.currentTarget.reset();
   localStorage.removeItem(KEY_STORAGE);
+  savedSettings = {};
 }
 
 function readyUserData() {
